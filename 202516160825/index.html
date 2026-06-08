@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테슬라 코리아 | 지속 가능한 에너지로의 전환</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><span>T</span>esla Korea</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#configure">내 테슬라 만들기</a>
+            <a href="#maintenance">유지보수</a>
+            <a href="#ir-news">투자정보</a>
+            <a href="#support">고객지원</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <!-- Official Cinematic Video Background -->
+        <video autoplay muted loop playsinline class="hero-video-bg">
+            <source src="https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto/cybertruck-homepage-video-desktop.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+
+        <div class="hero-content">
+            <span class="badge">테슬라 코리아 공식</span>
+            <h1>지속 가능한 에너지로의 <span>빠른</span> 전환을 주도합니다.</h1> 
+            <p class="description">
+                혁신적인 전기차 모델과 태양광 에너지 솔루션, 그리고 전 세계 어디서나 편리한 슈퍼차저 네트워크를 통해 미래 모빌리티 생태계를 구축합니다.
+            </p>
+            <a href="https://www.instagram.com/teslamotors/" target="_blank" class="btn-insta">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                Instagram 방문하기
+            </a>
+        </div>
+    </section>
+
+    <!-- 내 테슬라 만들기 섹션 -->
+    <section id="configure" class="section configure-section">
+        <div class="section-title">
+            <h2>나만의 <span>Tesla</span>를 구성해보세요.</h2>
+            <p>모든 모델을 직접 선택하고 최종 가격을 실시간으로 확인하세요.</p>
+        </div>
+        <div class="config-module">
+            <div class="config-panel">
+                <div class="config-step">
+                    <h3>1단계: 모델 선택</h3>
+                    <select id="model-select" class="custom-select" onchange="updateConfig()">
+                        <option value="models">Model S</option>
+                        <option value="model3">Model 3</option>
+                        <option value="modelx">Model X</option>
+                        <option value="modely">Model Y</option>
+                        <option value="cybertruck">Cybertruck</option>
+                    </select>
+                </div>
+                <div class="config-step">
+                    <h3>2단계: 트림 선택</h3>
+                    <div id="trim-options" class="trim-group"></div>
+                </div>
+                <div class="config-step">
+                    <h3>3단계: 외관 디자인</h3>
+                    <div class="color-picker"></div>
+                    <p id="color-name">Tesla Color</p>
+                </div>
+                <div class="config-step">
+                    <h3>4단계: 인테리어</h3>
+                    <select id="interior-select" class="custom-select" onchange="calculatePrice()">
+                        <option value="black">블랙 프리미엄 인테리어</option>
+                        <option value="white">화이트 프리미엄 인테리어</option>
+                    </select>
+                </div>
+            </div>
+            <div class="config-display-area">
+                <div class="display-visual">
+                    <img id="config-img" src="model_s.png" alt="Tesla Preview">
+                </div>
+                <div class="display-info-card">
+                    <div class="display-header">
+                        <h3 id="display-model">Model S</h3>
+                        <div id="display-color" class="color-indicator"></div>
+                    </div>
+                    <p id="display-trim">롱 레인지 (Long Range)</p>
+                    <p id="display-specs">Dual Motor AWD | 652km</p>
+                    
+                    <div class="price-summary">
+                        <p>최종 가격 (추정):</p>
+                        <div class="price-value"><span id="total-price">109,900,000</span>원</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-order" onclick="openOrderModal()">주문하기</button>
+                        <button class="btn-test-drive" onclick="openTestDriveModal()">시승 신청하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 유지보수 섹션 -->
+    <section id="maintenance" class="section maintenance-section">
+        <div class="section-title">
+            <h2>유지보수 및 <span>사후관리</span></h2>
+            <p>전국 서비스 센터 운영, 원격 진단 및 긴급 출동 시스템</p>
+        </div>
+        <div class="maint-grid">
+            <div class="maint-card">
+                <div class="maint-icon">🛠️</div>
+                <h3>정기 점검 서비스</h3>
+                <p>전국 서비스 센터 운영 및 원격 진단을 통한 예방 정비</p>
+            </div>
+            <div class="maint-card">
+                <div class="maint-icon">🚨</div>
+                <h3>긴급 출동 서비스</h3>
+                <p>365일 24시간 긴급 견인 및 현장 문제 해결 지원</p>
+            </div>
+            <div class="maint-card">
+                <div class="maint-icon">📚</div>
+                <h3>기술 지원 교육</h3>
+                <p>온라인 매뉴얼 제공 및 맞춤형 기술 워크숍 운영</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- IR & News 섹션 -->
+    <section id="ir-news" class="section ir-news-section">
+        <div class="info-grid">
+            <div class="info-block">
+                <h3>투자정보 (IR)</h3>
+                <p>지속 가능한 성장을 위한 테슬라의 재무 성과 및 미래 전략</p>
+                <a href="https://www.tesla.com/ko_kr/ir" target="_blank" class="btn-link">보고서 보기</a>
+            </div>
+            <div class="info-block">
+                <h3>뉴스룸 (Newsroom)</h3>
+                <p>최신 기술 트렌드와 기업 소식, 연구 성과를 가장 빠르게 전해드립니다.</p>
+                <a href="https://www.tesla.com/ko_kr/blog" target="_blank" class="btn-link">소식 더보기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 고객지원 섹션 -->
+    <section id="support" class="section support-section">
+        <div class="section-title">
+            <h2>고객지원 <span>센터</span></h2>
+            <p>1:1 문의 및 자유 게시판을 통해 테슬라와 소통하세요.</p>
+        </div>
+
+        <div class="support-container">
+            <div class="support-form-wrapper">
+                <h3>1:1 문의 및 A/S 신청</h3>
+                <form id="inquiry-form" class="premium-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>성함</label>
+                            <input type="text" placeholder="홍길동" required>
+                        </div>
+                        <div class="form-group">
+                            <label>연락처</label>
+                            <input type="tel" placeholder="010-1234-5678" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>문의 유형</label>
+                        <select>
+                            <option>차량 구매 문의</option>
+                            <option>A/S 및 정기 점검 예약</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>문의 내용</label>
+                        <textarea placeholder="상세 내용을 입력해주세요." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">문의 제출하기</button>
+                </form>
+            </div>
+
+            <div class="support-board-wrapper">
+                <div class="board-header">
+                    <h3>자유 게시판</h3>
+                    <button class="btn-write" onclick="openBoardModal()">글쓰기</button>
+                </div>
+                <div class="board-list">
+                    <table class="premium-table">
+                        <thead>
+                            <tr><th>번호</th><th>제목</th><th>작성자</th><th>날짜</th></tr>
+                        </thead>
+                        <tbody id="board-body">
+                            <tr><td>2</td><td>Model 3 롱 레인지 시승 후기입니다!</td><td>테슬라팬</td><td>2026.06.07</td></tr>
+                            <tr><td>1</td><td>관리자 답변입니다.</td><td>관리자</td><td>2026.06.05</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 모달 모음 -->
+    <div id="boardModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBoardModal()">&times;</span>
+            <div class="modal-header-tesla"><h3>게시글 작성</h3></div>
+            <form id="post-form" class="premium-form">
+                <div class="form-group"><label>제목</label><input type="text" id="post-title" required></div>
+                <div class="form-group"><label>작성자</label><input type="text" id="post-author" required></div>
+                <div class="form-group"><label>내용</label><textarea id="post-content" rows="6" required></textarea></div>
+                <button type="submit" class="btn-submit">등록하기</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeOrderModal()">&times;</span>
+            <div class="modal-header-tesla">
+                <h3>주문 완료하기</h3>
+                <p id="order-summary-text">Tesla 구성을 완료하세요.</p>
+            </div>
+            <form id="order-form" class="premium-form">
+                <div class="form-group"><label>성함</label><input type="text" placeholder="홍길동" required></div>
+                <div class="form-row">
+                    <div class="form-group"><label>이메일</label><input type="email" placeholder="example@tesla.com" required></div>
+                    <div class="form-group"><label>연락처</label><input type="tel" placeholder="010-0000-0000" required></div>
+                </div>
+                <div class="form-group">
+                    <label>인도 희망 지역</label>
+                    <select><option>서울</option><option>경기</option><option>부산</option></select>
+                </div>
+                <button type="submit" class="btn-submit">주문 확정하기</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="testDriveModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTestDriveModal()">&times;</span>
+            <div class="modal-header-tesla"><h3>시승 신청하기</h3></div>
+            <form id="test-drive-form" class="premium-form">
+                <div class="form-group"><label>희망 모델</label><select id="td-model-select"><option>Model S</option><option>Model 3</option><option>Model X</option><option>Model Y</option><option>Cybertruck</option></select></div>
+                <div class="form-group"><label>성함</label><input type="text" placeholder="홍길동" required></div>
+                <div class="form-row">
+                    <div class="form-group"><label>이메일</label><input type="email" placeholder="example@tesla.com" required></div>
+                    <div class="form-group"><label>연락처</label><input type="tel" placeholder="010-0000-0000" required></div>
+                </div>
+                <div class="form-group"><label>희망 일자</label><input type="date" required></div>
+                <button type="submit" class="btn-submit">신청 완료</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo"><span>T</span>esla Korea</div>
+            <div class="footer-info">
+                <p>&copy; 2026 테슬라 코리아. All rights reserved.</p>
+                <p>문의: support@tesla.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="support.js"></script>
+</body>
+</html>

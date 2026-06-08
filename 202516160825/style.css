@@ -1,0 +1,429 @@
+:root {
+    --primary: #cc0000; /* Tesla Red */
+    --primary-glow: rgba(204, 0, 0, 0.4);
+    --bg-dark: #0f1115;
+    --bg-header: rgba(0, 0, 0, 0.85);
+    --bg-card: #1a1a1a;
+    --text-main: #e0e0e0;
+    --text-dim: #94a3b8;
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --font-heading: 'Outfit', 'Segoe UI', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Header & Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 8%;
+    background-color: var(--bg-header);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--primary);
+    text-shadow: 0 0 15px var(--primary-glow);
+}
+
+nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section with Video Background */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 20px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 텍스트 가독성을 위한 어두운 오버레이 */
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 1000px;
+    z-index: 2;
+    position: relative;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.badge {
+    background: rgba(204, 0, 0, 0.15);
+    color: var(--primary);
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid rgba(204, 0, 0, 0.3);
+    display: inline-block;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    line-height: 1.1;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.hero h1 span {
+    color: var(--primary);
+    text-shadow: 0 0 20px var(--primary-glow);
+}
+
+.description {
+    font-size: 1.25rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    word-break: keep-all;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.btn-primary-tesla, .btn-secondary-tesla {
+    padding: 1rem 3rem;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 200px;
+}
+
+.btn-primary-tesla {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+}
+
+.btn-secondary-tesla {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid #fff;
+    backdrop-filter: blur(10px);
+}
+
+.btn-primary-tesla:hover {
+    background: #a30000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--primary-glow);
+}
+
+.btn-secondary-tesla:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+.modal-header-tesla {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1.5rem;
+}
+
+.modal-header-tesla h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-header-tesla p {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.order-notice {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin: 1rem 0;
+}
+
+/* Instagram Button */
+.btn-insta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--primary);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 100px;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(204, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-insta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(204, 0, 0, 0.5);
+    background-color: #e60000;
+}
+
+/* Configure Section */
+.section { padding: 100px 8%; }
+.section-title { text-align: center; margin-bottom: 4.5rem; }
+.section-title h2 { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; }
+.section-title h2 span { color: var(--primary); }
+.section-title p { color: var(--text-dim); }
+
+.configure-section { background-color: #161616; }
+.config-module { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background-color: var(--bg-card); padding: 50px; border-radius: 24px; border: 1px solid var(--glass-border); max-width: 1200px; margin: 0 auto; }
+.config-panel { display: flex; flex-direction: column; gap: 30px; }
+.config-step h3 { font-family: var(--font-heading); font-size: 1.25rem; color: #fff; }
+
+select, .custom-select { width: 100%; padding: 14px; background-color: #121212; color: #e0e0e0; border: 1px solid #3a3a3a; border-radius: 10px; font-size: 16px; outline: none; }
+.trim-group { display: flex; flex-direction: column; gap: 12px; }
+.trim-item { position: relative; }
+.trim-item input[type="radio"] { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; z-index: 2; }
+.trim-item label { display: block; background: #121212; border: 1px solid #3a3a3a; color: #fff; padding: 16px; border-radius: 12px; font-weight: 600; position: relative; z-index: 1; }
+.trim-item input[type="radio"]:checked + label { border-color: var(--primary); background: rgba(204, 0, 0, 0.1); }
+
+.color-picker { display: flex; gap: 15px; }
+.color-option { width: 42px; height: 42px; border-radius: 50%; cursor: pointer; border: 3px solid transparent; transition: 0.3s; }
+.color-option.active { border-color: var(--primary); transform: scale(1.1); }
+
+.config-display-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.display-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: radial-gradient(circle at center, #222 0%, #000 100%);
+    border-radius: 20px;
+    height: 400px; /* 크기 살짝 증설 */
+    perspective: 1500px; /* 3D 효과를 위한 원근법 추가 */
+}
+
+.display-visual img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
+    transition: transform 1.5s cubic-bezier(0.2, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: grab;
+}
+
+.display-visual:hover img {
+    animation: slowRotate 8s linear infinite;
+}
+
+@keyframes slowRotate {
+    0% { transform: rotateY(0deg) scale(1.05); }
+    100% { transform: rotateY(360deg) scale(1.05); }
+}
+
+.display-info-card {
+    background: #000;
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid #333;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.display-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#display-model {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.color-indicator {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#display-trim {
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+#display-specs {
+    color: #aaa;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.price-summary p {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.price-value {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #fff;
+    font-family: var(--font-heading);
+    margin-bottom: 30px;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.btn-order, .btn-test-drive {
+    padding: 1.2rem;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.btn-order {
+    background: #cc0000; /* 테슬라 레드 버튼 */
+    color: #fff;
+    border: none;
+}
+
+.btn-test-drive {
+    background: transparent;
+    color: #fff;
+    border: 1.5px solid #fff;
+}
+
+.btn-order:hover { background: #e60000; }
+.btn-test-drive:hover { background: #fff; color: #000; }
+
+/* Maintenance, IR, Support */
+.maintenance-section { background-color: #0c0e12; }
+.maint-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.maint-card { background: var(--bg-card); padding: 50px 30px; border-radius: 20px; text-align: center; border: 1px solid var(--glass-border); }
+
+.ir-news-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; background-color: var(--bg-dark); }
+.info-block { background: var(--bg-card); padding: 50px; border-radius: 24px; border: 1px solid var(--glass-border); }
+.info-block h3 { color: var(--primary); font-family: var(--font-heading); font-size: 1.75rem; margin-bottom: 20px; }
+
+.support-section { background-color: #0c0e12; }
+.support-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; max-width: 1400px; margin: 0 auto; }
+.support-form-wrapper, .support-board-wrapper { background: var(--bg-card); padding: 3rem; border-radius: 24px; border: 1px solid var(--glass-border); }
+.premium-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group input, .form-group select, .form-group textarea { background: #121212; border: 1px solid #333; color: #fff; padding: 1rem; border-radius: 10px; font-family: var(--font-body); }
+.btn-submit { background: var(--primary); color: #fff; padding: 1rem; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; }
+
+.premium-table { width: 100%; border-collapse: collapse; }
+.premium-table th, .premium-table td { padding: 1.2rem; border-bottom: 1px solid #333; color: #fff; }
+
+/* Modal & Footer */
+footer { text-align: center; padding: 60px 8%; background-color: #0c0e12; border-top: 1px solid var(--glass-border); color: #555; }
+
+@media (max-width: 992px) { .config-module { grid-template-columns: 1fr; } .support-container { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
