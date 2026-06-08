@@ -3,7 +3,7 @@ const teslaData = {
     models: {
         name: 'Model S',
         basePrice: 109900000,
-        img: 'model_s_img_1780888203314.png',
+        img: 'model_s.png',
         trims: [
             { name: '롱 레인지 (Long Range)', addPrice: 0, specs: 'Dual Motor AWD | 652km' },
             { name: '플래드 (Plaid)', addPrice: 30000000, specs: 'Tri Motor AWD | 600km' }
@@ -17,7 +17,7 @@ const teslaData = {
     model3: {
         name: 'Model 3',
         basePrice: 59990000,
-        img: 'model_3_img_1780888216591.png',
+        img: 'model_3.png',
         trims: [
             { name: '후륜 구동 (RWD)', addPrice: 0, specs: 'Rear-Wheel Drive | 382km' },
             { name: '롱 레인지 (Long Range)', addPrice: 10000000, specs: 'Dual Motor AWD | 528km' }
@@ -31,6 +31,7 @@ const teslaData = {
     modelx: {
         name: 'Model X',
         basePrice: 129900000,
+        img: 'model_x.png',
         trims: [
             { name: '롱 레인지 (Long Range)', addPrice: 0, specs: 'Dual Motor AWD | 560km' },
             { name: '플래드 (Plaid)', addPrice: 30000000, specs: 'Tri Motor AWD | 528km' }
@@ -43,6 +44,7 @@ const teslaData = {
     modely: {
         name: 'Model Y',
         basePrice: 54990000,
+        img: 'ev_car.png',
         trims: [
             { name: '후륜 구동 (RWD)', addPrice: 0, specs: 'Rear-Wheel Drive | 350km' },
             { name: '롱 레인지 (Long Range)', addPrice: 9000000, specs: 'Dual Motor AWD | 511km' },
@@ -56,7 +58,7 @@ const teslaData = {
     cybertruck: {
         name: 'Cybertruck',
         basePrice: 89900000, 
-        img: 'hero_tesla_1780888188862.png',
+        img: 'hero_tesla.png',
         trims: [
             { name: 'Dual Motor', addPrice: 0, specs: 'Dual Motor AWD | 547km' },
             { name: 'Cyberbeast', addPrice: 30000000, specs: 'Tri Motor AWD | 515km' }
